@@ -59,7 +59,7 @@ class Policy(object):
     def get_resources(cls):
         """ Returns Ext Resources """
         exts = []
-        plugin = manager.QuantumManager.get_plugin()
+        plugin = manager.NeutronManager.get_plugin()
         for resource_name in ['policy']:
             collection_name = resource_name + "s"
             params = RESOURCE_ATTRIBUTE_MAP.get(collection_name, dict())

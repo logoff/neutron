@@ -117,7 +117,7 @@ class Vpcroutetable(extensions.ExtensionDescriptor):
         my_plurals = [(key, key[:-1]) for key in RESOURCE_ATTRIBUTE_MAP.keys()]
         attr.PLURALS.update(dict(my_plurals))
         exts = []
-        plugin = manager.QuantumManager.get_plugin()
+        plugin = manager.NeutronManager.get_plugin()
         for resource_name in ['route_table', 'nat_instance']:
             collection_name = resource_name.replace('_', '-') + "s"
             params = RESOURCE_ATTRIBUTE_MAP.get(resource_name + "s", dict())
