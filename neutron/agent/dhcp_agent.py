@@ -25,6 +25,7 @@ from neutron.agent.common import config
 from neutron.agent.linux import dhcp
 from neutron.agent.linux import external_process
 from neutron.agent.linux import interface
+from neutron.agent.linux import ovs_lib  # noqa
 from neutron.agent import rpc as agent_rpc
 from neutron.common import constants
 from neutron.common import exceptions
@@ -163,7 +164,7 @@ class DhcpAgent(manager.Manager):
                                     'network %s'), deleted_id)
 
             for network in active_networks:
-                pool.spawn_n(self.safe_configure_dhcp_for_network, network)
+                pool.spawn(self.safe_configure_dhcp_for_network, network)
             pool.waitall()
             LOG.info(_('Synchronizing state complete'))
 
