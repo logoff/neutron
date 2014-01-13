@@ -72,7 +72,7 @@ class ContrailPlugin(db_base_plugin_v2.NeutronDbPluginV2,
 
     supported_extension_aliases = ["ipam", "policy", "security-group",
                                    "router", "route-table", "port-security",
-                                   "binding",]
+                                   "binding","quotas"]
     _cfgdb = None
     _args = None
     _tenant_id_dict = {}
