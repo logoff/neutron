@@ -18,6 +18,10 @@ function neutron_vpn_configure_common {
     _neutron_service_plugin_class_add $VPN_PLUGIN
 }
 
+function neutron_vpnaas_configure_driver() {
+    iniset_multiline $NEUTRON_CONF service_providers service_provider "VPN:junos_vpnaas:neutron.services.vpn.junos_vpnaas.service_drivers.vpnaas_service_driver.VPNaaSServiceDriver:default"
+}
+
 function neutron_vpn_stop {
     local ipsec_data_dir=$DATA_DIR/neutron/ipsec
     local pids

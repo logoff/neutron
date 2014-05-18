@@ -728,6 +728,7 @@ function _configure_neutron_fwaas {
 function _configure_neutron_vpn {
     neutron_vpn_install_agent_packages
     neutron_vpn_configure_common
+    neutron_vpnaas_configure_driver
 }
 
 # _configure_neutron_plugin_agent() - Set config files for neutron plugin agent
